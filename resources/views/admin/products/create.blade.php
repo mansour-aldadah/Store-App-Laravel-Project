@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-    <form action="" method="post">
+    <form action="{{ url('products/store') }}" method="post">
         @csrf
         <div class="mb-3">
             <label for="name" class="form-label">اسم المنتج</label>
@@ -18,9 +18,9 @@
             <label for="category" class="form-label">الصنف</label>
             <select class="form-control" name="category" id="category">
                 <option value="#"></option>
-                <option value="1">ملابس</option>
-                <option value="2">أحذية</option>
-                <option value="3">إكسسوارات</option>
+                @foreach ($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                @endforeach
             </select>
         </div>
         <div class="mb-3">
