@@ -1,5 +1,7 @@
 @extends('layouts.admin')
 @section('content')
+    <a href="{{ url('products/create/') }}" class="btn btn-secondary">أضف منتج جديد</a>
+
     <table class="table">
         <thead>
             <tr>

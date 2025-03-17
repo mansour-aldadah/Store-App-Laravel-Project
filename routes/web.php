@@ -19,3 +19,8 @@ Route::post('categories/store', [CategoryController::class, 'store']);
 Route::get('categories/edit/{id}', [CategoryController::class, 'edit']);
 Route::patch('categories/update/{id}', [CategoryController::class, 'update']);
 Route::get('categories/delete/{id}', [CategoryController::class, 'destroy']);
+
+Route::get('/', [FrontController::class, 'index']);
+Route::get('/back', function () {
+    return view('layouts.admin');
+});
