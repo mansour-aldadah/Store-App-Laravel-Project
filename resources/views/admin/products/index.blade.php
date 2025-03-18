@@ -1,5 +1,15 @@
 @extends('layouts.admin')
 @section('content')
+    @if (session()->has('success'))
+        <div class="alert alert-success">
+            {{ session()->get('success') }}
+        </div>
+    @elseif(session()->has('error'))
+        <div class="alert alert-danger">
+            {{ session()->get('error') }}
+        </div>
+    @endif
+
     <a href="{{ url('products/create/') }}" class="btn btn-secondary">أضف منتج جديد</a>
 
     <table class="table">
