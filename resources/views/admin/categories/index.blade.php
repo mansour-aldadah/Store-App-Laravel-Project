@@ -1,5 +1,16 @@
 @extends('layouts.admin')
 @section('content')
+    {{-- {{ dd(session()) }} --}}
+    @if (session()->has('success'))
+        <div class="alert alert-success">
+            {{ session()->get('success') }}
+        </div>
+    @elseif(session()->has(key: 'error'))
+        <div class="alert alert-danger">
+            {{ session()->get('error') }}
+        </div>
+    @endif
+
     <a href="{{ url('categories/create/') }}" class="btn btn-secondary">أضف صنف جديد</a>
 
     <table class="table">

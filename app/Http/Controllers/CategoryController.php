@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -18,10 +19,17 @@ class CategoryController extends Controller
     }
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => ['required', 'string', 'unique:categories,name'],
+        ]);
         $category = new Category();
         $category->name = $request->name;
-        $category->save();
-        return redirect()->back();
+        $isSaved = $category->save();
+        if ($isSaved) {
+            return redirect('categories')->with('success', '!تم إضافة الصنف بنجاح');
+        } else {
+            return redirect('categories')->with('error', 'حدث خطأ أثناء إضافة الصنف، حاول مرة أخرى.');
+        }
     }
     public function edit($id)
     {
@@ -30,14 +38,25 @@ class CategoryController extends Controller
     }
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'name' => ['required', 'string', 'unique:categories,name'],
+        ]);
         $category = Category::findOrFail($id);
         $category->name = $request->name;
-        $category->save();
-        return redirect('categories');
+        if ($category->save()) {
+            return redirect('categories')->with('success', '!تم تعديل الصنف بنجاح');
+        } else {
+            return redirect('categories')->with('error', 'حدث خطأ أثناء تعديل الصنف، حاول مرة أخرى.');
+        }
     }
+
     public function destroy($id)
     {
+        $productExists = Product::where('category_id', $id)->exists();
+        if ($productExists) {
+            return back()->with('error', 'لا يمكن حذف الصنف لأنه مرتبط بمنتجات.');
+        }
         Category::findOrFail($id)->delete();
-        return redirect()->back();
+        return back()->with('success', '!تم حذف الصنف بنجاح');
     }
 }
