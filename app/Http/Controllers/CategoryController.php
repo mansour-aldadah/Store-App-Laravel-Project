@@ -30,9 +30,9 @@ class CategoryController extends Controller
         $category->name = $request->name;
         $isSaved = $category->save();
         if ($isSaved) {
-            return redirect('categories')->with('success', '!تم إضافة الصنف بنجاح');
+            return redirect()->route('categories.index')->with('success', '!تم إضافة الصنف بنجاح');
         } else {
-            return redirect('categories')->with('error', 'حدث خطأ أثناء إضافة الصنف، حاول مرة أخرى.');
+            return redirect()->route('categories.index')->with('error', 'حدث خطأ أثناء إضافة الصنف، حاول مرة أخرى.');
         }
     }
     public function edit($id)
@@ -48,9 +48,9 @@ class CategoryController extends Controller
         $category = Category::findOrFail($id);
         $category->name = $request->name;
         if ($category->save()) {
-            return redirect('categories')->with('success', '!تم تعديل الصنف بنجاح');
+            return redirect()->route('categories.index')->with('success', '!تم تعديل الصنف بنجاح');
         } else {
-            return redirect('categories')->with('error', 'حدث خطأ أثناء تعديل الصنف، حاول مرة أخرى.');
+            return redirect()->route('categories.index')->with('error', 'حدث خطأ أثناء تعديل الصنف، حاول مرة أخرى.');
         }
     }
 

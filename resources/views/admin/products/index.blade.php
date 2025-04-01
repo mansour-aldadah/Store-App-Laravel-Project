@@ -10,7 +10,7 @@
         </div>
     @endif
 
-    <a href="{{ url('products/create/') }}" class="btn btn-secondary">أضف منتج جديد</a>
+    <a href="{{ route('products.create') }}" class="btn btn-secondary">أضف منتج جديد</a>
 
     <table class="table">
         <thead>
@@ -33,8 +33,8 @@
                     <td>{{ $product->quantity }}</td>
                     <td>
                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                            <a href="{{ url('products/delete/' . $product->id) }}" class="btn btn-danger">حذف</a>
-                            <a href="{{ url('products/edit/' . $product->id) }}" class="btn btn-info">تعديل</a>
+                            <a href="{{ route('products.delete', $product->id) }}" class="btn btn-danger">حذف</a>
+                            <a href="{{ route('products.edit', $product->id) }}" class="btn btn-info">تعديل</a>
                         </div>
                     </td>
                 </tr>

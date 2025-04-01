@@ -176,11 +176,11 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav me-auto mb-2 mb-md-0 d-flex justify-content-between">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{{ url(path: '/') }}">الصفحة
+                            <a class="nav-link active" aria-current="page" href="{{ route('home.front') }}">الصفحة
                                 الرئيسية</a>
                         </li>
                     </ul>
-                    <a class="nav-link active text-light" aria-current="page" href="{{ url('back') }}">The
+                    <a class="nav-link active text-light" aria-current="page" href="{{ route('home.back') }}">The
                         Back-end</a>
                 </div>
             </div>

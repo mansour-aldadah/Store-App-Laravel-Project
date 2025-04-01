@@ -11,7 +11,7 @@
         </div>
     @endif
 
-    <a href="{{ url('categories/create/') }}" class="btn btn-secondary">أضف صنف جديد</a>
+    <a href="{{ route('categories.create') }}" class="btn btn-secondary">أضف صنف جديد</a>
 
     <table class="table">
         <thead>
@@ -28,8 +28,8 @@
                     <td>{{ $category->name }}</td>
                     <td>
                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                            <a href="{{ url('categories/delete/' . $category->id) }}" class="btn btn-danger">حذف</a>
-                            <a href="{{ url('categories/edit/' . $category->id) }}" class="btn btn-info">تعديل</a>
+                            <a href="{{ route('categories.delete', $category->id) }}" class="btn btn-danger">حذف</a>
+                            <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-info">تعديل</a>
                         </div>
                     </td>
                 </tr>

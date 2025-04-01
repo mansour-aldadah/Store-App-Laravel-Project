@@ -249,7 +249,7 @@
     </svg>
 
     <header class="navbar sticky-top bg-dark flex-md-nowrap p-0 shadow" data-bs-theme="dark">
-        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="{{ url('/') }}">The Front
+        <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="{{ route('home.front') }}">The Front
             End</a>
 
         <a class="dropdown-item text-white text-end px-4" href="{{ route('logout') }}"
@@ -277,7 +277,7 @@
                         <ul class="nav flex-column">
                             <li class="nav-item">
                                 <a class="nav-link d-flex align-items-center gap-2 active" aria-current="page"
-                                    href="{{ url('categories') }}">
+                                    href="{{ route('home.back') }}">
                                     <svg class="bi">
                                         <use xlink:href="#house-fill" />
                                     </svg>
@@ -285,7 +285,8 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2" href="{{ url('categories') }}">
+                                <a class="nav-link d-flex align-items-center gap-2"
+                                    href="{{ route('categories.index') }}">
                                     <svg class="bi">
                                         <use xlink:href="#file-earmark" />
                                     </svg>
@@ -293,7 +294,8 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center gap-2" href="{{ url('products') }}">
+                                <a class="nav-link d-flex align-items-center gap-2"
+                                    href="{{ route('products.index') }}">
                                     <svg class="bi">
                                         <use xlink:href="#cart" />
                                     </svg>

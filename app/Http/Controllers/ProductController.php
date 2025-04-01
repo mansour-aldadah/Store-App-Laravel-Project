@@ -42,9 +42,9 @@ class ProductController extends Controller
         $product->description = $request->description;
 
         if ($product->save()) {
-            return redirect('products')->with('success', '!تم إضافة المنتج بنجاح');
+            return redirect()->route('products.index')->with('success', '!تم إضافة المنتج بنجاح');
         } else {
-            return redirect('products')->with('error', 'حدث خطأ أثناء إضافة المنتج، حاول مرة أخرى.');
+            return redirect()->route('products.index')->with('error', 'حدث خطأ أثناء إضافة المنتج، حاول مرة أخرى.');
         }
     }
 
@@ -73,9 +73,9 @@ class ProductController extends Controller
         $product->description = $request->description;
 
         if ($product->save()) {
-            return redirect('products')->with('success', '!تم تعديل المنتج بنجاح');
+            return redirect()->route('products.index')->with('success', '!تم تعديل المنتج بنجاح');
         } else {
-            return redirect('products')->with('error', 'حدث خطأ أثناء تعديل المنتج، حاول مرة أخرى.');
+            return redirect()->route('products.index')->with('error', 'حدث خطأ أثناء تعديل المنتج، حاول مرة أخرى.');
         }
     }
 

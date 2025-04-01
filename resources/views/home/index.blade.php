@@ -3,7 +3,7 @@
     <!-- Category Filter -->
     <h1 class="text-center my-5">عرض المنتجات</h1>
     <div class="container my-5">
-        <form method="GET" action="{{ url('/') }}">
+        <form method="GET" action="{{ route('home.front') }}">
             <div class="row">
                 <div class="col-md-4">
                     <select name="category_id" class="form-select" onchange="this.form.submit()">
