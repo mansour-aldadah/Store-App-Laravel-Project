@@ -28,7 +28,7 @@
                 <tr>
                     <th scope="row">{{ $loop->iteration }}</th>
                     <td>{{ $product->name }}</td>
-                    <td>{{ \App\Models\Category::find($product->category_id)->name }}</td>
+                    <td>{{ $product->category->name }}</td>
                     <td>{{ $product->price }}</td>
                     <td>{{ $product->quantity }}</td>
                     <td>
