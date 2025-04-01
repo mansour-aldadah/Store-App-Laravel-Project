@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\ProductController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
@@ -21,6 +22,10 @@ Route::patch('categories/update/{id}', [CategoryController::class, 'update']);
 Route::get('categories/delete/{id}', [CategoryController::class, 'destroy']);
 
 Route::get('/', [FrontController::class, 'index']);
-Route::get('/back', function () {
+Route::middleware('auth')->get('/back', function () {
     return view('layouts.admin');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
